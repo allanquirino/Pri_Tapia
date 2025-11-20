@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import NovidadesList from "@/components/NovidadesList";
 import { AnimatedPetSticker } from "@/components/AnimatedPetSticker";
+import PhotoGallery from "@/components/PhotoGallery";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,13 +43,13 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2E8B57" }}>
-                PriTapia: Proteção Animal e Ação Comunitária
+                Galeria de Fotos: Nossa História Visual
               </h2>
               <p className="text-lg max-w-3xl mx-auto" style={{ color: "#14532d" }}>
-                Apoiamos resgates, promovemos campanhas de castração e conectamos animais a famílias amorosas.
-                Participe com doações, voluntariado ou adoção.
+                Explore nossas ações através de imagens. Clique em qualquer foto para ampliá-la.
               </p>
             </div>
+            <PhotoGallery />
           </div>
         </section>
 
