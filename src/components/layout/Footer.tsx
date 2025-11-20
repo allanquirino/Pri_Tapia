@@ -5,7 +5,9 @@ const Footer = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <span className="text-sm mr-2" style={{ color: "#2E8B57" }}>Site desenvolvido por</span>
-            <img src="/wexio.png" alt="Wexio" className="h-8 w-auto" />
+            <a href="https://www.wexio.dev.br" target="_blank" className="cursor-pointer hover:opacity-75 transition-opacity">
+              <img src="/Logo Wexio Site.svg" alt="Wexio" className="h-8 w-auto" />
+            </a>
           </div>
           <div></div> {/* Empty div for balance */}
         </div>
