@@ -7,7 +7,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { path: "/", label: "INICIO", isRoute: true },
+    { path: "#", label: "INICIO" },
     { path: "https://www.instagram.com/pritapia", label: "INSTAGRAM", isExternal: true },
     { path: "#contato", label: "CONTATO" },
     { path: "#novidades", label: "NOVIDADES" },
