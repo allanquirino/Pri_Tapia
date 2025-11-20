@@ -1,0 +1,3 @@
+-- Insert news item for new vaccination campaign
+INSERT INTO novidades (id, title, content, authorId, createdAt) VALUES
+(CONCAT('20251118025400', FLOOR(RAND()*9000)+1000), 'Nova Campanha de Vacinação', 'A PriTapia está lançando uma nova campanha de vacinação gratuita para pets. Venha vacinar seu animal de estimação e proteja sua saúde! A campanha inclui vacinas contra raiva, parvovirose e outras doenças comuns. Agende sua visita em nossas clínicas parceiras.', NULL, '2025-11-18 02:54:00');

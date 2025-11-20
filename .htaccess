@@ -1,0 +1,56 @@
+RewriteEngine On
+
+# Environment variables for database (set these in cPanel)
+# PRI_DB_HOST, PRI_DB_USER, PRI_DB_PASS, PRI_DB_NAME should be set in cPanel Environment Variables
+
+RewriteCond %{REQUEST_URI} ^/assets/.*$
+RewriteCond %{DOCUMENT_ROOT}/dist%{REQUEST_URI} -f
+RewriteRule ^assets/(.*)$ /dist/assets/$1 [L]
+
+RewriteRule ^assets/(.*)\.js$ - [T=application/javascript]
+RewriteRule ^assets/(.*)\.css$ - [T=text/css]
+RewriteRule ^$ /dist/index.html [L]
+RewriteRule ^index\.html$ /dist/index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/dist%{REQUEST_URI} -f
+RewriteRule ^(.*)$ /dist/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /dist/index.html [L]
+
+ErrorDocument 403 /dist/index.html
+ErrorDocument 404 /dist/index.html
+
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/javascript .js
+    AddType application/wasm .wasm
+    AddType text/css .css
+    AddType application/json .json
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.js$">
+        Header set Content-Type "application/javascript"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+    <FilesMatch "\.js$">
+        ForceType application/javascript
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+    Header always set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https:; frame-src 'self'; base-uri 'self'; form-action 'self'"
+</IfModule>
