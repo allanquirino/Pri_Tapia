@@ -41,18 +41,18 @@ const Header = () => {
                {navItems.map((item) => (
                  item.isExternal ? (
                    <a key={item.path} href={item.path} target="_blank" rel="noopener noreferrer">
-                     <Button variant="ghost" className="text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg">
+                     <Button variant="ghost" className="bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg">
                        {item.label}
                      </Button>
                    </a>
                  ) : item.isRoute ? (
                    <Link key={item.path} to={item.path}>
-                     <Button variant="ghost" className="text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg">
+                     <Button variant="ghost" className="bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg">
                        {item.label}
                      </Button>
                    </Link>
                  ) : (
-                   <Button key={item.path} variant="ghost" className="text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg" onClick={() => scrollToSection(item.path)}>
+                   <Button key={item.path} variant="ghost" className="bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg" onClick={() => scrollToSection(item.path)}>
                      {item.label}
                    </Button>
                  )
@@ -82,18 +82,18 @@ const Header = () => {
               {navItems.map((item) => (
                 item.isExternal ? (
                   <a key={item.path} href={item.path} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="w-full">
-                    <Button variant="ghost" className="w-full justify-start text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg">
+                    <Button variant="ghost" className="w-full justify-start bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg">
                       {item.label}
                     </Button>
                   </a>
                 ) : item.isRoute ? (
                   <Link key={item.path} to={item.path} onClick={() => setMobileMenuOpen(false)} className="w-full">
-                    <Button variant="ghost" className="w-full justify-start text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg">
+                    <Button variant="ghost" className="w-full justify-start bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg">
                       {item.label}
                     </Button>
                   </Link>
                 ) : (
-                  <Button key={item.path} variant="ghost" className="w-full justify-start text-green-700 hover:text-green-800 hover:bg-green-50 transition-all duration-300 rounded-lg" onClick={() => { scrollToSection(item.path); setMobileMenuOpen(false); }}>
+                  <Button key={item.path} variant="ghost" className="w-full justify-start bg-[#d4edda] text-green-700 hover:text-green-800 hover:bg-green-100 transition-all duration-300 rounded-lg" onClick={() => { scrollToSection(item.path); setMobileMenuOpen(false); }}>
                     {item.label}
                   </Button>
                 )
