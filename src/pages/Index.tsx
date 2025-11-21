@@ -9,6 +9,7 @@ import Header from "@/components/layout/Header";
 import NovidadesList from "@/components/NovidadesList";
 import { AnimatedPetSticker } from "@/components/AnimatedPetSticker";
 import PhotoGallery from "@/components/PhotoGallery";
+import PetRegistrationForm from "@/components/PetRegistrationForm";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* About Section */}
+        {/* Formulário */}
         <section id="sobre" className="py-20" style={{ backgroundColor: "#f0fdf4" }}>
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -122,48 +123,18 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contato" className="py-20" style={{ backgroundColor: "#f0fdf4" }}>
+        {/* Pet Registration Section */}
+        <section id="formulario" className="py-20" style={{ backgroundColor: "#f0fdf4" }}>
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2E8B57" }}>
-                  Entre em Contato
-                </h2>
-                <p className="text-green-700 text-lg">
-                  Estamos aqui para ajudar você e os animais
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="text-center">
-                  <svg className="w-24 h-24 mx-auto mb-4" style={{ color: "#2E8B57" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  <p className="text-green-700">Preencha o formulário ao lado para nos enviar uma mensagem</p>
-                </div>
-                <div>
-                  <form action="mailto:wexiosolucoes@gmail.com" method="post" encType="text/plain" className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-green-700">Nome</label>
-                      <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 border border-green-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-green-700">Email</label>
-                      <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 border border-green-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-green-700">Mensagem</label>
-                      <textarea id="message" name="message" rows={4} required className="mt-1 block w-full px-3 py-2 border border-green-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></textarea>
-                    </div>
-                    <button type="submit" className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-                      Enviar Mensagem
-                    </button>
-                  </form>
-                </div>
-              </div>
-
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2E8B57" }}>
+                Cadastro de Animais
+              </h2>
+              <p className="text-green-700 text-lg max-w-2xl mx-auto">
+                Cadastre seu pet na PriTapia e ajude-nos a oferecer os melhores cuidados e serviços para seu companheiro.
+              </p>
             </div>
+            <PetRegistrationForm />
           </div>
         </section>
 
