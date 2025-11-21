@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, Sparkles, X, Home, LogOut } from "lucide-react";
+import { Menu, X, Home, LogOut } from "lucide-react";
 import { useState } from "react";
 
 const AdminHeader = () => {
@@ -32,7 +32,7 @@ const AdminHeader = () => {
           {/* Logo */}
           <Link to="/admin" className="flex items-center space-x-2 group">
             <div className="relative">
-              <Sparkles className="h-6 w-6 text-primary transition-transform group-hover:scale-110" />
+              <img src="/logo_novo.png" className="h-6 w-6 transition-transform group-hover:scale-110" alt="Logo" />
               <div className="absolute inset-0 blur-lg bg-primary opacity-20 group-hover:opacity-40 transition-opacity" />
             </div>
             <div>
