@@ -17,7 +17,7 @@ function getBearerToken() {
 switch ($method) {
     case 'GET':
         if ($id) {
-            $stmt = $conn->prepare("SELECT n.id, n.title, n.content, n.createdAt, u.username AS author FROM novidades n LEFT JOIN users u ON n.authorId = u.id WHERE n.id = ?");
+            $stmt = $conn->prepare("SELECT n.id, n.title, n.content, n.imageUrl, n.linkUrl, n.createdAt, u.username AS author FROM novidades n LEFT JOIN users u ON n.authorId = u.id WHERE n.id = ?");
             $stmt->bind_param('s', $id);
             $stmt->execute();
             $res = $stmt->get_result();
@@ -25,7 +25,7 @@ switch ($method) {
             $stmt->close();
             if ($item) sendJsonResponse($item); else sendJsonResponse(['error'=>'Not found'],404);
         } else {
-            $result = $conn->query("SELECT n.id, n.title, n.content, n.createdAt, u.username AS author FROM novidades n LEFT JOIN users u ON n.authorId = u.id ORDER BY n.createdAt DESC");
+            $result = $conn->query("SELECT n.id, n.title, n.content, n.imageUrl, n.linkUrl, n.createdAt, u.username AS author FROM novidades n LEFT JOIN users u ON n.authorId = u.id ORDER BY n.createdAt DESC");
             $items = $result->fetch_all(MYSQLI_ASSOC);
             sendJsonResponse($items);
         }
@@ -43,11 +43,13 @@ switch ($method) {
         validateRequired($data, ['title','content']);
         $idn = generateId();
         $createdAt = date('Y-m-d H:i:s');
-        $stmt = $conn->prepare("INSERT INTO novidades (id, title, content, authorId, createdAt) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param('sssss', $idn, $data['title'], $data['content'], $user['id'], $createdAt);
+        $imageUrl = $data['imageUrl'] ?? null;
+        $linkUrl = $data['linkUrl'] ?? null;
+        $stmt = $conn->prepare("INSERT INTO novidades (id, title, content, imageUrl, linkUrl, authorId, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('sssssss', $idn, $data['title'], $data['content'], $imageUrl, $linkUrl, $user['id'], $createdAt);
         if ($stmt->execute()) {
             logAction('News', $user['username'], 'Nova novidade publicada: ' . $data['title']);
-            sendJsonResponse(['id'=>$idn,'title'=>$data['title'],'content'=>$data['content'],'authorId'=>$user['id'],'createdAt'=>$createdAt],201);
+            sendJsonResponse(['id'=>$idn,'title'=>$data['title'],'content'=>$data['content'],'imageUrl'=>$imageUrl,'linkUrl'=>$linkUrl,'authorId'=>$user['id'],'createdAt'=>$createdAt],201);
         } else {
             sendJsonResponse(['error'=>'Failed to publish'],500);
         }

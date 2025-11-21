@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-type Item = { id: string; title: string; content: string; author?: string; createdAt: string };
+type Item = { id: string; title: string; content: string; imageUrl?: string; linkUrl?: string; author?: string; createdAt: string };
 
 export default function NovidadesList() {
   const [items, setItems] = useState<Item[]>([]);
@@ -30,7 +30,15 @@ export default function NovidadesList() {
             <h3 className="text-lg font-bold">{it.title}</h3>
             <span className="text-xs text-muted-foreground">{new Date(it.createdAt).toLocaleString('pt-BR')}</span>
           </div>
+          {it.imageUrl && (
+            <img src={it.imageUrl} alt={it.title} className="mt-2 w-full h-48 object-cover rounded-md" />
+          )}
           <p className="mt-2 text-sm">{it.content}</p>
+          {it.linkUrl && (
+            <a href={it.linkUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-blue-600 hover:underline text-sm">
+              Saiba mais
+            </a>
+          )}
           {it.author && <p className="mt-2 text-xs text-muted-foreground">Por {it.author}</p>}
         </div>
       ))}

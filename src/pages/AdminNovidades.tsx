@@ -11,6 +11,8 @@ import { sessionService } from '@/services/session';
 const AdminNovidades = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [linkUrl, setLinkUrl] = useState('');
   const [status, setStatus] = useState<{ type: 'success'|'error'|'', message: string }>({ type: '', message: '' });
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +38,7 @@ const AdminNovidades = () => {
       const res = await fetch(`${apiBase}novidades.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || ''}` },
-        body: JSON.stringify({ title, content })
+        body: JSON.stringify({ title, content, imageUrl: imageUrl || undefined, linkUrl: linkUrl || undefined })
       });
       if (!res.ok) {
         const err = await res.json();
@@ -46,6 +48,8 @@ const AdminNovidades = () => {
       setStatus({ type: 'success', message: 'Novidade publicada com sucesso.' });
       setTitle('');
       setContent('');
+      setImageUrl('');
+      setLinkUrl('');
     } catch {
       setStatus({ type: 'error', message: 'Erro inesperado' });
     } finally {
@@ -71,6 +75,14 @@ const AdminNovidades = () => {
                 <div>
                   <Label htmlFor="content">Conteúdo</Label>
                   <Textarea id="content" value={content} onChange={(e)=>setContent(e.target.value)} rows={6} />
+                </div>
+                <div>
+                  <Label htmlFor="imageUrl">URL da Imagem (opcional)</Label>
+                  <Input id="imageUrl" value={imageUrl} onChange={(e)=>setImageUrl(e.target.value)} placeholder="https://exemplo.com/imagem.jpg" />
+                </div>
+                <div>
+                  <Label htmlFor="linkUrl">URL do Link (opcional)</Label>
+                  <Input id="linkUrl" value={linkUrl} onChange={(e)=>setLinkUrl(e.target.value)} placeholder="https://exemplo.com/saiba-mais" />
                 </div>
                 <div>
                   <Button onClick={onSubmit} disabled={loading}>
