@@ -14,7 +14,7 @@ import { Loader2, Upload, CheckCircle } from "lucide-react";
 const petRegistrationSchema = z.object({
   // Dados do Animal
   petName: z.string().min(1, "Nome do animal é obrigatório"),
-  species: z.enum(["cachorro", "gato", "outro"], {
+  species: z.enum(["cachorro", "gato"], {
     required_error: "Espécie é obrigatória",
   }),
   breed: z.string().optional(),
@@ -72,9 +72,7 @@ const PetRegistrationForm = () => {
       formData.append("age", data.age || "");
       formData.append("sex", data.sex);
       formData.append("color", data.color || "");
-      formData.append("birthDate", data.birthDate || "");
       formData.append("medicalHistory", data.medicalHistory || "");
-      formData.append("allergies", data.allergies || "");
       formData.append("observations", data.observations || "");
 
       // Dados do tutor
@@ -173,7 +171,6 @@ const PetRegistrationForm = () => {
                   <SelectContent>
                     <SelectItem value="cachorro">Cachorro</SelectItem>
                     <SelectItem value="gato">Gato</SelectItem>
-                    <SelectItem value="outro">Outro</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.species && (
@@ -210,7 +207,6 @@ const PetRegistrationForm = () => {
                   <SelectContent>
                     <SelectItem value="macho">Macho</SelectItem>
                     <SelectItem value="femea">Fêmea</SelectItem>
-                    <SelectItem value="indefinido">Indefinido</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.sex && (
@@ -227,14 +223,6 @@ const PetRegistrationForm = () => {
                 />
               </div>
 
-              <div>
-                <Label htmlFor="birthDate">Data de Nascimento</Label>
-                <Input
-                  id="birthDate"
-                  type="date"
-                  {...register("birthDate")}
-                />
-              </div>
             </div>
 
             <div>
@@ -244,16 +232,6 @@ const PetRegistrationForm = () => {
                 {...register("medicalHistory")}
                 placeholder="Descreva o histórico médico, vacinas realizadas, etc."
                 rows={3}
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="allergies">Alergias</Label>
-              <Textarea
-                id="allergies"
-                {...register("allergies")}
-                placeholder="Liste as alergias conhecidas"
-                rows={2}
               />
             </div>
 

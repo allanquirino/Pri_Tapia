@@ -9,7 +9,6 @@ const Header = () => {
   const navItems = [
     { path: "#", label: "INICIO" },
     { path: "https://www.instagram.com/pritapia", label: "INSTAGRAM", isExternal: true },
-    { path: "#contato", label: "CONTATO" },
     { path: "#novidades", label: "NOVIDADES" },
     { path: "/registration", label: "CADASTRO", isRoute: true },
     { path: "/admin", label: "ADMINISTRAÇÃO", isRoute: true },
