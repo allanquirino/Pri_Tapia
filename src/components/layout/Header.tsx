@@ -10,17 +10,19 @@ const Header = () => {
     { path: "#", label: "INICIO" },
     { path: "https://www.instagram.com/pritapia", label: "INSTAGRAM", isExternal: true },
     { path: "#novidades", label: "NOVIDADES" },
-    { path: "/registration", label: "CADASTRO", isRoute: true },
+    { path: "#formulario", label: "CADASTRO" },
     { path: "/admin", label: "ADMINISTRAÇÃO", isRoute: true },
   ];
 
   const scrollToSection = (href: string) => {
     if (href === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, '', '#');
     } else {
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, '', href);
       }
     }
   };
