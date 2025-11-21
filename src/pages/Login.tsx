@@ -21,13 +21,13 @@ const Login = () => {
   // Check if user is already logged in
   useEffect(() => {
     if (sessionService.isAuthenticated()) {
-      navigate("/admin");
+      navigate("/login");
     }
   }, [navigate]);
 
   // Load remembered credentials if available
   useEffect(() => {
-    const rememberedUser = db.getSession('rememberedUser');
+    const rememberedUser = db.getSession('rememberedUser') as { username: string; password: string } | null;
     if (rememberedUser) {
       setUsername(rememberedUser.username || "");
       setRememberMe(true);
@@ -59,7 +59,7 @@ const Login = () => {
         // Track activity
         await sessionService.trackActivity();
         
-        navigate("/admin");
+        navigate("/login");
       } else {
         setError("Login ou senha incorretos.");
         // Log failed attempt
@@ -97,7 +97,6 @@ const Login = () => {
           <CardTitle className="text-2xl bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
             Área Administrativa
           </CardTitle>
-          <p className="text-muted-foreground">ONG PriTapia</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
