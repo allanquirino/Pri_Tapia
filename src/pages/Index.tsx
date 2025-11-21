@@ -38,7 +38,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Seção de Apresentação da ONG */}
+        {/* Galeria de Fotos */}
         <section id="apresentacao" className="py-20 bg-green-200">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -46,7 +46,7 @@ const Index = () => {
                 Galeria de Fotos: Nossa História Visual
               </h2>
               <p className="text-lg max-w-3xl mx-auto" style={{ color: "#14532d" }}>
-                Explore nossas ações através de imagens. Clique em qualquer foto para ampliá-la.
+                Explore nossas ações através de imagens.
               </p>
             </div>
             <PhotoGallery />

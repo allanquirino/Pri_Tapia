@@ -6,11 +6,32 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = [
-  { src: "/hero.png", alt: "Hero image" },
-  { src: "/logo_novo.png", alt: "Logo PriTapia" },
-  { src: "/pri.jpg", alt: "Pri image" },
-  { src: "/wexio.png", alt: "Wexio logo" },
-  { src: "/guia.png", alt: "Guia image" },
+  { src: "galeria/Pri (1).jpeg", alt: "Pri (1)" },
+  { src: "galeria/Pri (2).jpeg", alt: "Pri (2)" },
+  { src: "galeria/Pri (3).jpeg", alt: "Pri (3)" },
+  { src: "galeria/Pri (4).jpeg", alt: "Pri (4)" },
+  { src: "galeria/Pri (5).jpeg", alt: "Pri (5)" },
+  { src: "galeria/Pri (6).jpeg", alt: "Pri (6)" },
+  { src: "galeria/Pri (7).jpeg", alt: "Pri (7)" },
+  { src: "galeria/Pri (8).jpeg", alt: "Pri (8)" },
+  { src: "galeria/Pri (9).jpeg", alt: "Pri (9)" },
+  { src: "galeria/Pri (10).jpeg", alt: "Pri (10)" },
+  { src: "galeria/Pri (11).jpeg", alt: "Pri (11)" },
+  { src: "galeria/Pri (12).jpeg", alt: "Pri (12)" },
+  { src: "galeria/Pri (13).jpeg", alt: "Pri (13)" },
+  { src: "galeria/Pri (14).jpeg", alt: "Pri (14)" },
+  { src: "galeria/Pri (15).jpeg", alt: "Pri (15)" },
+  { src: "galeria/Pri (16).jpeg", alt: "Pri (16)" },
+  { src: "galeria/Pri (17).jpeg", alt: "Pri (17)" },
+  { src: "galeria/Pri (18).jpeg", alt: "Pri (18)" },
+  { src: "galeria/Pri (19).jpeg", alt: "Pri (19)" },
+  { src: "galeria/Pri (20).jpeg", alt: "Pri (20)" },
+  { src: "galeria/Pri (21).jpeg", alt: "Pri (21)" },
+  { src: "galeria/Pri (22).jpeg", alt: "Pri (22)" },
+  { src: "galeria/Pri (23).jpeg", alt: "Pri (23)" },
+  { src: "galeria/Pri (24).jpeg", alt: "Pri (24)" },
+  { src: "galeria/Pri (25).jpeg", alt: "Pri (25)" },
+  { src: "galeria/Pri (26).jpeg", alt: "Pri (26)" },
 ];
 
 const PhotoGallery = () => {
@@ -47,8 +68,8 @@ const PhotoGallery = () => {
       >
         <CarouselContent>
           {images.map((image, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1">
+            <CarouselItem key={index} className="basis-1/3">
+              <div className="p-1 flex justify-center items-center h-64">
                 <img
                   src={image.src}
                   alt={image.alt}
