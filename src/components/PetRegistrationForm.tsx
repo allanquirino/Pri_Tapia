@@ -19,13 +19,11 @@ const petRegistrationSchema = z.object({
   }),
   breed: z.string().optional(),
   age: z.string().optional(),
-  sex: z.enum(["macho", "femea", "indefinido"], {
+  sex: z.enum(["macho", "femea"], {
     required_error: "Sexo é obrigatório",
   }),
   color: z.string().optional(),
-  birthDate: z.string().optional(),
   medicalHistory: z.string().optional(),
-  allergies: z.string().optional(),
   observations: z.string().optional(),
 
   // Dados do Tutor
