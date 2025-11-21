@@ -54,59 +54,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Formulário */}
-        <section id="sobre" className="py-20" style={{ backgroundColor: "#f0fdf4" }}>
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "#2E8B57" }}>
-                  Sobre a PriTapia
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold" style={{ color: "#2E8B57" }}>Nossa Missão</h3>
-                  <p className="text-green-700 text-lg">
-                    Trabalhamos pelo bem-estar animal, promovendo ações de proteção, educação e castração para reduzir o abandono e incentivar a adoção responsável.
-                  </p>
-                  <p className="text-lg text-green-700">
-                    Na nossa página do Instagram @pritapia, você acompanha campanhas, resgates e histórias de adoção que inspiram a comunidade.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-6 items-center">
-                  <AnimatedPetSticker variant="heart" color="pink" size="md">
-                    <div className="text-center">
-                      <Heart className="h-8 w-8 mx-auto mb-2" style={{ color: "#2E8B57" }} />
-                      <div className="text-2xl font-bold" style={{ color: "#2E8B57" }}>1200+</div>
-                      <div className="text-sm text-green-600">Animais Ajudados</div>
-                    </div>
-                  </AnimatedPetSticker>
-                  <AnimatedPetSticker variant="paw" color="blue" size="md">
-                    <div className="text-center">
-                      <PawPrint className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-green-800">800+</div>
-                      <div className="text-sm text-green-600">Castrações</div>
-                    </div>
-                  </AnimatedPetSticker>
-                  <AnimatedPetSticker variant="star" color="yellow" size="md">
-                    <div className="text-center">
-                      <Calendar className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-green-800">300+</div>
-                      <div className="text-sm text-green-600">Adoções</div>
-                    </div>
-                  </AnimatedPetSticker>
-                  <AnimatedPetSticker variant="heart" color="purple" size="md">
-                    <div className="text-center">
-                      <Heart className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-green-800">5+</div>
-                      <div className="text-sm text-green-600">Anos de Atuação</div>
-                    </div>
-                  </AnimatedPetSticker>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* News & Campaigns Section */}
         <section id="novidades" className="py-20 bg-white">
